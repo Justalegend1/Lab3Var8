@@ -34,7 +34,6 @@ if var == 2:
     with open ("Input.txt", "r") as f:
         st = f.readlines()
         st1 = st[0]
-
         st2 = st[1]
         st3 = st[2]
         print(st1, end = "")
