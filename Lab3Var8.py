@@ -114,16 +114,16 @@ if var == 3:
     d.sort(key = lambda to_mean: to_mean["value"])
     print("Сортированный список")
     pprint(d)
-    e = []
-    for l in range(0,len(d)-1):
-        e.append(list(d[l].values()))
-    print (e)
+    #e = []
+    #for l in range(0,len(d)-1):
+        #e.append(list(d[l].values()))
+    #print (e)
     
         #if p.isdigit():
             #del(p)
     while True:
         key1 = input("Введите значение ключа: ")
-        if not keyfor.isalpha():
+        if not key1.isalpha():
             print ("Введите строчный ключ")
         else:
             key1 = key1.title()
@@ -139,12 +139,18 @@ if var == 3:
                      break
     slovar[key1] = int(q)
     pprint(d)
-    count = 0
+    key2 = list(slovar.keys())
+    count = list(range(0,len(slovar)))
+    print("Ключи с одинаковыми значениями: ")
     val1 = list(slovar.values())
     for t in range(0, len(val)):
         for n in range(t+1, len(val)):
             if val1[t]==val1[n]:
-                print (key[t])
-                print (key[n])
+                count[t] = 1
+                count[n] = 1
+    for m in range(0,len(count)):
+        if (count[m]==1):
+            print(str(key2[m])+ str(":") + str(val1[m]))
+
     
     
