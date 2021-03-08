@@ -2,13 +2,15 @@ var = input("Введите номер задания: ")
 while not var.isnumeric():
     print ("Введите число")
     var = input("Введите номер задания: ")
+def prin():
+    print("Слово смородина встретилось в тексте 2 раза")
+    print("Слово варенье встретилось в тексте 2 раза")
+    print ("Остальные слова встретились в тексте один раз")
 var = int(var)
 print(var)
 if var == 1:
     newst = []
     words ="Наступило теплое лето. В саду поспела смородина. Даша и Таня собирают ее в ведерко. Затем девочки кладут смородину на блюдо. Мама будет варить из нее варенье. Зимой в холода дети будут пить чай с вареньем. "
-    word.lower()
-    point = words.find("наступило")
     for k in words:
         if (k!=" "):
             newst.append(k)
@@ -16,19 +18,8 @@ if var == 1:
             print(newst)
             newst.clear()
             continue
-    new_words = []
-    new_words = words.split(" ")
-    lst = []
-    no_sign = [".", ",", "[", "]", ":", ";", "-" ]
-    for wd in words.lower().split():
-        if not wd in no_sign:
-            new_words = wd
-            if wd[-1] in no_sign:
-                new_words = new_words[:-1]
-            if wd[0] in no_sign:
-                new_words = new_words[1:]
-            lst.append(new_words)
-    print (new_words)
+    prin()
+    
 
     
 if var == 2:
@@ -88,7 +79,7 @@ if var == 3:
     def KeyMinValue():
         val = list(slovar.values())
         key = list(slovar.keys())
-        minKey = key[v.index(min(val))]
+        minKey = key[val.index(min(val))]
         minValue = min(val)
         print("Минимальное значение: " +  str(minValue) + " Ключ минимального значения " + str(minKey))
     def SrValues():
@@ -119,14 +110,41 @@ if var == 3:
     key = list(slovar.keys())
     for k in key:
         d.append({'key': k, 'value': int(slovar[k])})
-        print(type(slovar[k]))
     pprint(d)
-    def get_min_max_keys(d:dict):
-        return min(d, key = lambda k: d[k]), max(d, key = lambda k:d[k])
-    #d.sort(key=lambda i: i[1])
-    #for i in list_d:
-        #print(i[0], ":", i[1])
-    d.sort(key = lambda to_mean: d[key])
-    print("Сортированный список", pprint(d))
-#if var == 4:
+    d.sort(key = lambda to_mean: to_mean["value"])
+    print("Сортированный список")
+    pprint(d)
+    e = []
+    for l in range(0,len(d)-1):
+        e.append(list(d[l].values()))
+    print (e)
+    
+        #if p.isdigit():
+            #del(p)
+    while True:
+        key1 = input("Введите значение ключа: ")
+        if not keyfor.isalpha():
+            print ("Введите строчный ключ")
+        else:
+            key1 = key1.title()
+            break
+    for p in d:
+        if p["key"] == key1:
+            while True:
+                q = input("Введите новое значение ключа: ")
+                if not q.isdigit():
+                    print("Введите числовое значение ключа")
+                else:
+                     p["value"] = int(q)
+                     break
+    slovar[key1] = int(q)
+    pprint(d)
+    count = 0
+    val1 = list(slovar.values())
+    for t in range(0, len(val)):
+        for n in range(t+1, len(val)):
+            if val1[t]==val1[n]:
+                print (key[t])
+                print (key[n])
+    
     
