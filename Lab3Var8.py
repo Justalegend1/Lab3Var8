@@ -153,6 +153,61 @@ if var == 3:
             print(str(key2[m])+ str(":") + str(val1[m]))
 
 if var == 4:
+    import json
+    import pprint
+    dic = {"Aircraft": [{"ID": 2281337, "Number": 256, "Model": 47,"Route": 3, "The Date TO": "23.02.2019", "Spaciousness":7000}], "Passengers": [{"SNM": "Butilkin Pavel Adapterovich","History": [{"ID":2281338,"Data poleta": "28.03.2020", "Place": "3В","Ves bagage": "500 kg"}]}]}
+    dic1 = {"Aircraft": 2281337, "Number": 256, "Model": 47,"Route": 3, "The Date To": "23.02.2019", "Spaciousness":7000, "Passengers": "Butilkin Pavel Adapterovich","History":2281338,"Data Poleta": "28.03.2020", "Place": "3B","Ves Bagage": "500 kg"}
+    
+    json_object = json.dumps(dic, indent = 3)
+    with open ("sample.json", "w") as outfile:
+        outfile.write(json_object)
+    with open('sample.json', 'r') as openfile: 
+        json_object = json.load(openfile) 
+    print(json_object)
+    key3 = input("Введите значение ключа, который хотите изменить: ")
+    key3 = key3.title()
+    while True:
+            a = input("Введите новое значение ключа: ")
+            dic1[key3] = a
+            break 
+
+    json_object = json.dumps(dic1, indent = 3)
+    with open ("sample.json", "w") as outfile:
+        outfile.write(json_object)
+    with open('sample.json', 'r') as openfile: 
+        json_object = json.load(openfile) 
+    print(json_object)
+
+    key4 = input("Введите ключ, который хотите добавить: ")
+    key4 = key4.title()
+    val3 = input("Введите значение для введенного ключа: ")
+    dic1[key4] = val3
+
+    json_object = json.dumps(dic1, indent = 3)
+    with open ("sample.json", "w") as outfile:
+        outfile.write(json_object)
+    with open('sample.json', 'r') as openfile: 
+        json_object = json.load(openfile) 
+    print(json_object)
+
+
+    while True:
+        key5 = input("Введите ключ, который хотите удалить: ")
+        key5 = key5.title()
+        if not key5 in (dic1.keys()):
+            print("Введите ключ из словаря")
+        else:
+           del dic1[key5]
+           break
+    
+    json_object = json.dumps(dic1, indent = 3)
+    with open ("sample.json", "w") as outfile:
+        outfile.write(json_object)
+    with open('sample.json', 'r') as openfile: 
+        json_object = json.load(openfile) 
+    print(json_object)
+
+
     #Аэропорт
 #{‘Самолеты’: [{‘id’: value, ‘Номер’: value, ‘Модель’:value, ‘Маршрут’: value, ‘Дата ТО’: value, ...}], ‘Пассажиры’: [{‘ФИО’: value, ‘История’:  [{‘id’ : value, ‘Дата полета’: date value, ‘Место’: value}, ...]}]}
 #Структура данных пассажирова не должна содержать информации о самолетах кроме ID, при выводе истории необходимо выводить данные исходя из связки по ID.
