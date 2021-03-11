@@ -19,6 +19,7 @@ if var == 1:
 
     
 if var == 2:
+    import pprint
     with open ("Input.txt", "r") as f:
         st = f.readlines()
         st1 = st[0]
@@ -32,16 +33,53 @@ if var == 2:
     print (list_keys)
     new_dictionary = [dictionary.get(list_keys[0]), dictionary.get(list_keys[1]), dictionary.get(list_keys[2])]
     print (new_dictionary)
-    with open ("Output.txt", "w") as file:
-        new_dictionary1 = "".join(new_dictionary)
-        file.write(new_dictionary1)
-    print("Задание 5")
-    with open ("nya.txt","r") as nya:
-        nya1 = nya.read()
-        print (nya1)
-        print ("OK")
-    with open ("helloworld.exe","w") as world:
-        print("Access denied")
+    print("Микрозадание 5")
+    def vvod():
+        while True:
+            numb = input()
+            if not numb.isnumeric():
+                print("Введите значение заново")
+            else:
+                numb = int(numb)
+                if numb<=0:
+                    print("Введите положительное число")
+                else:
+                    return numb
+                    break
+    print("Введите количество файлов")              
+    numb = vvod()
+    files = {}
+    s1 = []
+    helper = []
+    helper1 = {}
+    for io in range(0,numb):
+        print("Введите название файла и возможные действия через пробел")
+        file = input()
+        s1 = (file.split(" ", maxsplit = 1))
+        helper1[s1[0]] = s1[1]
+        helper.append(s1[1])
+    s2 = []
+    print ("Введите количество действий, которое хотите сделать с файлами")
+    numb1 = vvod()
+    count = 0
+    for ii in range(0,numb1):
+        print("Введите название файла и производимое действие через пробел")
+        file1 = input()
+        s2 = (file1.split(" ", maxsplit = 1))
+        if s2[1] in (helper1[s2[0]]):
+            print ("OK")
+        else:
+            print("Access denied")
+        count+=1
+    #file1 = file1[::-1]
+    #file1 = file1.replace("w","", 1)
+    #file1 = file1.replace("r", "", 1)
+    #file1 = file1.replace("x", "", 1)
+    #file1 = file1[::-1]
+    #print (file1)
+    #for iii in reversed(file1):
+       # if (iii == w) or (iii == r) or (iii == x):
+
 if var == 3:
     slovar = {'Буфорд':2000, 'Хум':23, 'Рабштейн': 25, 'Мелник':390, 'Калласте': 953, 'Дюрбюи': 11000, 'Иннополис':96, 'Панемуне':265, 'Чекалин':965, 'Шеффилд':551800,'Лидс':751485,'Кроли':100547, 'Сент-Хеленс': 102629, 'Олдем': 103544, 'Блэкберн':105085}
     from pprint import pprint
