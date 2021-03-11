@@ -11,13 +11,9 @@ print(var)
 if var == 1:
     newst = []
     words ="Наступило теплое лето. В саду поспела смородина. Даша и Таня собирают ее в ведерко. Затем девочки кладут смородину на блюдо. Мама будет варить из нее варенье. Зимой в холода дети будут пить чай с вареньем. "
-    for k in words:
-        if (k!=" "):
-            newst.append(k)
-        else:
-            print(newst)
-            newst.clear()
-            continue
+    z = words.split(" ")
+    for io in z:
+        print(io)
     prin()
     
 
