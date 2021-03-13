@@ -1,12 +1,25 @@
 {
-   "Aircraft": 2281337,
-   "Model": 47,
-   "Route": 3,
-   "The Date To": "23.02.2019",
-   "Spaciousness": 7000,
-   "Passengers": "Butilkin Pavel Adapterovich",
-   "History": "2567",
-   "Data Poleta": "28.03.2020",
-   "Place": "345",
-   "Ves Bagage": "500 kg"
+   "Aircraft": [
+      {
+         "ID": 2281337,
+         "Number": 256,
+         "Model": 47,
+         "Route": 3,
+         "The Date TO": "23.02.2019",
+         "Spaciousness": 7000
+      }
+   ],
+   "Passengers": [
+      {
+         "SNM": "Butilkin Pavel Adapterovich",
+         "History": [
+            {
+               "ID": 2281338,
+               "Data poleta": "28.03.2020",
+               "Place": "3\u0412",
+               "Ves bagage": "500 kg"
+            }
+         ]
+      }
+   ]
 }
