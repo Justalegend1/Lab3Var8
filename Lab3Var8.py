@@ -215,19 +215,32 @@ if var == 3:
     pprint(d)
     key2 = list(slovar.keys())
     count = list(range(0,len(slovar)))
-    print("Ключи с одинаковыми значениями: ")
+    for t in range(0, len(val)):
+        count[t] = 0
     val1 = list(slovar.values())
     for t in range(0, len(val)):
         for n in range(t+1, len(val)):
             if val1[t]==val1[n]:
                 count[t] = 1
                 count[n] = 1
-    for m in range(0,len(count)):
-        if (count[m]==1):
-            print(str(key2[m])+ str(":") + str(val1[m]))
-
-
+    sum1 = 0
+    for op in count:
+        sum1 = sum1+op
+    if (sum1!=1) and (sum1!= 0):
+        for m in range(0,len(count)):
+            if (count[m]==1):
+                print(str(key2[m])+ str(":") + str(val1[m]))
+    elif(sum1 == 0) or (sum1 == 1):
+        print("Нет ключей с одинаковыми значениями")
 if var == 4:
+    #import json
+    #json_object = json.dumps(dic, indent = 3)
+    #with open ("sample.json", "w") as outfile:
+        #outfile.write(json_object)
+    #with open('sample.json', 'r') as openfile: 
+        #json_object = json.load(openfile) 
+    #print(json_object)
+    #это просто схема работы с json файлом
     dic = {"Aircraft": [{"ID": 2281337, "Number": 256, "Model": 47,"Route": 3, "The Date TO": "23.02.2019", "Spaciousness":7000}], "Passengers": [{"SNM": "Butilkin Pavel Adapterovich","History": [{"ID":2281338,"Data poleta": "28.03.2020", "Place": "3В","Ves bagage": "500 kg"}]}]}
     print("Исходный словарь")
     from pprint import pprint
