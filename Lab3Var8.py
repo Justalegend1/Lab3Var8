@@ -188,13 +188,6 @@ if var == 3:
     d.sort(key = lambda to_mean: to_mean["value"])
     print("Сортированный список")
     pprint(d)
-    #e = []
-    #for l in range(0,len(d)-1):
-        #e.append(list(d[l].values()))
-    #print (e)
-    
-        #if p.isdigit():
-            #del(p)
     while True:
         key1 = input("Введите значение ключа: ")
         if not key1.isalpha():
@@ -233,14 +226,6 @@ if var == 3:
     elif(sum1 == 0) or (sum1 == 1):
         print("Нет ключей с одинаковыми значениями")
 if var == 4:
-    #import json
-    #json_object = json.dumps(dic, indent = 3)
-    #with open ("sample.json", "w") as outfile:
-        #outfile.write(json_object)
-    #with open('sample.json', 'r') as openfile: 
-        #json_object = json.load(openfile) 
-    #print(json_object)
-    #это просто схема работы с json файлом
     dic = {"Aircraft": [{"ID": 2281337, "Number": 256, "Model": 47,"Route": 3, "The Date TO": "23.02.2019", "Spaciousness":7000}], "Passengers": [{"SNM": "Butilkin Pavel Adapterovich","History": [{"ID":2281338,"Data poleta": "28.03.2020", "Place": "3В","Ves bagage": "500 kg"}]}]}
     print("Исходный словарь")
     from pprint import pprint
@@ -607,8 +592,385 @@ if var == 4:
                                     break
                                 elif (counter == 1):
                                     break               
-              
-    #Аэропорт
+    if (task == 3): 
+        while True:
+                keys2 = input("Введите категорию, в которой хотите осуществить редактирование\n1-Aircraft\n2-Passengers\n")
+                if not keys2.isnumeric():
+                    print("Введите цифру")
+                else:
+                    keys2 = int(keys2)
+                    if (keys2 < 1) or (keys2>2):
+                        print("Выберите категорию от 1 до 2")
+                    else:
+                        keys2 = int(keys2)
+                        break
+        if (keys2 == 1):
+                keys2 = "Aircraft" 
+                while True:
+                    elem = input("1 - редактировать всю категорию\n2 - редактировать элемент внутри категории\n")
+                    if not elem.isnumeric():
+                        print("Введите цифру")
+                    else:
+                        elem = int(elem)
+                        if (elem < 1) or (elem>2):
+                            print("Выберите действие от 1 до 2")
+                        else:
+                            elem = int(elem)
+                            break 
+                if elem == 1:
+                    while True:
+                        izm1 = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                        if not izm1.isnumeric():
+                            print("Введите цифру")
+                        else:
+                            izm1 = int(izm1)
+                            if (izm1 < 1) or (izm1>2):
+                                print("Выберите действие от 1 до 2")
+                            else:
+                                break 
+                    if(izm1 == 1):
+                        old_value = dic[keys2][0]
+                        del (dic[keys2])
+                        new_value1 = input("Введите новый ключ\n")
+                        dic[new_value1] = old_value
+                        print(dic)
+                    elif izm1 == 2:
+                        dic[keys2][0] = input("Введите новое значение категории:\n")
+                        print(dic)
+                elif elem == 2:
+                     while True:
+                        elem1 = input("Выберите элемент, который хотите изменить:\n1 - ID\n2 - Number\n3 - Model\n4 - Route\n5 - The Date TO\n6 - Spaciousness\n")
+                        if not elem1.isnumeric():
+                            print("Введите число")
+                        else:
+                            elem1 = int(elem1)
+                            if (elem1<1) or (elem1>6):
+                                print("Введите цифру от 1 до 6")
+                            else:
+                                elem1 = int(elem1)
+                                break
+                     if (elem1==1):
+                        elem1 = "ID"
+                        while True:
+                            izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                            if not izm.isnumeric():
+                                print("Введите число")
+                            else:
+                                izm=  int(izm)
+                                if (izm>2) or (izm<1):
+                                    print("Введите цифру от 1 до 2")
+                                else:
+                                    break
+                        if (izm == 1):
+                            old_value = dic[keys2][0][elem1]
+                            new_key = input("Введите новый ключ\n")
+                            dic[keys2][0][new_key] = old_value
+                            del (dic[keys2][0][elem1])
+                            print(dic)
+                        if izm == 2:
+                            dic[keys2][0][elem1] = input("Введите новое значение ключа\n")
+                            print(dic)
+                     elif (elem1 == 2):
+                        elem1 = "Number"
+                        while True:
+                            izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                            if not izm.isnumeric():
+                                print("Введите число")
+                            else:
+                                izm=  int(izm)
+                                if (izm>2) or (izm<1):
+                                    print("Введите цифру от 1 до 2")
+                                else:
+                                    break
+                        if (izm == 1):
+                            old_value = dic[keys2][0][elem1]
+                            new_key = input("Введите новый ключ\n")
+                            dic[keys2][0][new_key] = old_value
+                            del (dic[keys2][0][elem1])
+                            print(dic)
+                        if izm == 2:
+                            dic[keys2][0][elem1] = input("Введите новое значение ключа\n")
+                            print(dic)
+                               
+                     elif(elem1 == 3):
+                        elem1 = "Model"
+                        while True:
+                            izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                            if not izm.isnumeric():
+                                print("Введите число")
+                            else:
+                                izm=  int(izm)
+                                if (izm>2) or (izm<1):
+                                    print("Введите цифру от 1 до 2")
+                                else:
+                                    break
+                        if (izm == 1):
+                            old_value = dic[keys2][0][elem1]
+                            new_key = input("Введите новый ключ\n")
+                            dic[keys2][0][new_key] = old_value
+                            del (dic[keys2][0][elem1])
+                            print(dic)
+                        if izm == 2:
+                            dic[keys2][0][elem1] = input("Введите новое значение ключа\n")
+                            print(dic)
+                    
+                     elif(elem1 == 4):
+                        elem1 = "Route"
+                        while True:
+                            izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                            if not izm.isnumeric():
+                                print("Введите число")
+                            else:
+                                izm=  int(izm)
+                                if (izm>2) or (izm<1):
+                                    print("Введите цифру от 1 до 2")
+                                else:
+                                    break
+                        if (izm == 1):
+                            old_value = dic[keys2][0][elem1]
+                            new_key = input("Введите новый ключ")
+                            dic[keys2][0][new_key] = old_value
+                            del (dic[keys2][0][elem1])
+                            print(dic)
+                        if izm == 2:
+                            new_value = input("Введите ключ, значение которого хотите изменить\n")
+                            dic[keys2][0][new_value] = input("Введите новое значение ключа\n")
+                            print(dic)
+                    
+                     elif(elem1 == 5):
+                        elem1 = "The Date TO"
+                        while True:
+                            izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                            if not izm.isnumeric():
+                                print("Введите число")
+                            else:
+                                izm=  int(izm)
+                                if (izm>2) or (izm<1):
+                                    print("Введите цифру от 1 до 2")
+                                else:
+                                    break
+                        if (izm == 1):
+                            old_value = dic[keys2][0][elem1]
+                            new_key = input("Введите новый ключ\n")
+                            dic[keys2][0][new_key] = old_value
+                            del (dic[keys2][0][elem1])
+                            print(dic)
+                        if izm == 2:
+                            dic[keys2][0][elem1] = input("Введите новое значение ключа\n")
+                            print(dic)
+                   
+                     elif(elem1 ==6):
+                        elem1 = "Spaciousness"
+                        while True:
+                            izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                            if not izm.isnumeric():
+                                print("Введите число")
+                            else:
+                                izm=  int(izm)
+                                if (izm>2) or (izm<1):
+                                    print("Введите цифру от 1 до 2")
+                                else:
+                                    break
+                        if (izm == 1):
+                            old_value = dic[keys2][0][elem1]
+                            new_key = input("Введите новый ключ")
+                            dic[keys2][0][new_key] = old_value
+                            del (dic[keys2][0][elem1])
+                            print(dic)
+                        if izm == 2:
+                            dic[keys2][0][elem1] = input("Введите новое значение ключа\n")
+                            print(dic)
+        if keys2 ==2:
+            while True:
+                elem = input("1 - изменить всю категорию\n2 - изменить элемент внутри категории\n")
+                if not elem.isnumeric():
+                    print("Введите цифру")
+                else:
+                    elem = int(elem)
+                    if (elem < 1) or (elem>2):
+                        print("Выберите действие от 1 до 2")
+                    else:
+                        elem = int(elem)
+                        break
+            keys2 = "Passengers" 
+            if elem ==1:
+                dic[keys2][0] = input("Введите новое значение категории\n")
+                print(dic)
+            elif (elem==2):
+                while True:
+                       elem1 = input("Выберите элемент, который хотите изменить:\n1 - SNM\n2 - History\n")
+                       if not elem1.isnumeric():
+                           print("Введите число")
+                       else:
+                           elem1 = int(elem1)
+                           if (elem1<1) or (elem1>2):
+                               print("Введите цифру от 1 до 2")
+                           else:
+                               elem1 = int(elem1)
+                               break
+                if (elem1==1):
+                       elem1 = "SNM"
+                       while True:
+                            izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                            if not izm.isnumeric():
+                                print("Введите число")
+                            else:
+                                izm=  int(izm)
+                                if (izm>2) or (izm<1):
+                                    print("Введите цифру от 1 до 2")
+                                else:
+                                    break
+                       if (izm == 1):
+                            old_value = dic[keys2][0][elem1]
+                            new_key = input("Введите новый ключ")
+                            dic[keys2][0][new_key] = old_value
+                            del (dic[keys2][0][elem1])
+                            print(dic)
+                       if izm == 2:
+                            dic[keys2][0][elem1] = input("Введите новое значение ключа\n")
+                            print(dic)
+
+
+                elif (elem1 == 2):
+                       elem1 = "History"
+                       print("Данная категория содержит подкатегории, что вы хотите сделать:\n1 - изменить всю категорию\n2 - изменить элемент внутри категории")
+                       while True:
+                           elem2 = input()
+                           if not elem2.isnumeric():
+                               print("Введите число")
+                           else:
+                               elem2 = int(elem2)
+                               if (elem2<1) or (elem2>2):
+                                   print("Введите цифру от 1 до 2")
+                               else:
+                                   elem2 = int(elem2)
+                                   break
+                       if (elem2 == 1):
+                            while True:
+                                izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                                if not izm.isnumeric():
+                                    print("Введите число")
+                                else:
+                                    izm=  int(izm)
+                                    if (izm>2) or (izm<1):
+                                        print("Введите цифру от 1 до 2")
+                                    else:
+                                        break
+                            if (izm == 1):
+                                old_value = dic[keys2][0][elem1]
+                                new_key = input("Введите новый ключ\n")
+                                dic[keys2][0][new_key] = old_value
+                                del (dic[keys2][0][elem1])
+                                print(dic)
+                            if izm == 2:
+                                dic[keys2][0][elem1] = input("Введите новое значение ключа\n")
+                                print(dic)
+
+
+                           
+                       elif(elem2 == 2):
+                           print("Выберите элемент, который хотите изменить\n1 - ID\n2 - Data poleta\n3 - Place\n4 - Ves bagage")
+                           while True:
+                               elem3 = input()
+                               if not elem3.isnumeric():
+                                   print("Введите число")
+                               else:
+                                   elem3 = int(elem3)
+                                   if (elem3<1) or (elem3>4):
+                                       print("Введите цифру от 1 до 4")
+                                   else:
+                                       elem3 = int(elem3)
+                                       break
+                           if (elem3==1):
+                               elem3 = "ID"
+                               while True:
+                                izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                                if not izm.isnumeric():
+                                    print("Введите число")
+                                else:
+                                    izm=  int(izm)
+                                    if (izm>2) or (izm<1):
+                                        print("Введите цифру от 1 до 2")
+                                    else:
+                                        break
+                               if (izm == 1):
+                                    old_value = dic[keys2][0][elem1][0][elem3]
+                                    new_key = input("Введите новый ключ\n")
+                                    dic[keys2][0][new_key] = old_value
+                                    del (dic[keys2][0][elem1][0][elem3])
+                                    print(dic)
+                               if izm == 2:
+                                    dic[keys2][0][elem1][0][elem3] = input("Введите новое значение ключа\n")
+                                    print(dic)
+                           elif (elem3 == 2):
+                               elem3 = "Data poleta"
+                               while True:
+                                izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                                if not izm.isnumeric():
+                                    print("Введите число")
+                                else:
+                                    izm=  int(izm)
+                                    if (izm>2) or (izm<1):
+                                        print("Введите цифру от 1 до 2")
+                                    else:
+                                        break
+                               if (izm == 1):
+                                old_value = dic[keys2][0][elem1][0][elem3]
+                                new_key = input("Введите новый ключ\n")
+                                dic[keys2][0][new_key] = old_value
+                                del (dic[keys2][0][elem1][0][elem3])
+                                print(dic)
+                               if izm == 2:
+                                dic[keys2][0][elem1][0][elem3] = input("Введите новое значение ключа\n")
+                                print(dic) 
+                           elif(elem3==3):
+                               elem3 = "Place"
+                               while True:
+                                izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                                if not izm.isnumeric():
+                                    print("Введите число")
+                                else:
+                                    izm=  int(izm)
+                                    if (izm>2) or (izm<1):
+                                        print("Введите цифру от 1 до 2")
+                                    else:
+                                        break
+                               if (izm == 1):
+                                old_value = dic[keys2][0][elem1][0][elem3]
+                                new_key = input("Введите новый ключ\n")
+                                dic[keys2][0][new_key] = old_value
+                                del (dic[keys2][0][elem1][0][elem3])
+                                print(dic)
+                               if izm == 2:
+                                dic[keys2][0][elem1][0][elem3] = input("Введите новое значение ключа\n")
+                                print(dic)
+                           elif(elem3 == 4):
+                               elem3 = "Ves bagage"
+                               while True:
+                                izm = input("Что вы хотите изменить?\n1 - Ключ\n2 - Значение ключа\n")
+                                if not izm.isnumeric():
+                                    print("Введите число")
+                                else:
+                                    izm=  int(izm)
+                                    if (izm>2) or (izm<1):
+                                        print("Введите цифру от 1 до 2")
+                                    else:
+                                        break
+                               if (izm == 1):
+                                old_value = dic[keys2][0][elem1][0][elem3]
+                                new_key = input("Введите новый ключ\n")
+                                dic[keys2][0][new_key] = old_value
+                                del (dic[keys2][0][elem1][0][elem3])
+                                print(dic)
+                               if izm == 2:
+                                dic[keys2][0][elem1][0][elem3] = input("Введите новое значение ключа\n")
+                                print(dic) 
+        import json
+    json_object = json.dumps(dic, indent = 3)
+    with open ("sample.json", "w") as outfile:
+        outfile.write(json_object)
+    with open('sample.json', 'r') as openfile: 
+        json_object = json.load(openfile) 
 #{‘Самолеты’: [{‘id’: value, ‘Номер’: value, ‘Модель’:value, ‘Маршрут’: value, ‘Дата ТО’: value, ...}], ‘Пассажиры’: [{‘ФИО’: value, ‘История’:  [{‘id’ : value, ‘Дата полета’: date value, ‘Место’: value}, ...]}]}
 #Структура данных пассажирова не должна содержать информации о самолетах кроме ID, при выводе истории необходимо выводить данные исходя из связки по ID.
 
