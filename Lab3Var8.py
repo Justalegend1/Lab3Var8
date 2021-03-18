@@ -875,6 +875,7 @@ if var == 4:
                                if not elem3.isnumeric():
                                    print("Введите число")
                                else:
+
                                    elem3 = int(elem3)
                                    if (elem3<1) or (elem3>4):
                                        print("Введите цифру от 1 до 4")
